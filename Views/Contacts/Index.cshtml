@@ -1,0 +1,38 @@
+﻿@model IEnumerable<web_based.ViewModels.ContactViewModel>
+
+@{
+    ViewData["Title"] = "Contact Manager";
+}
+
+<h2 style="margin-top: 50px;">@ViewData["Title"]</h2>
+
+
+<p>
+    <a asp-action="Create" class="btn btn-success mb-3">Add Contact</a>
+</p>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><a asp-action="Details" asp-route-id="@item.Id">@item.FirstName</a></td>
+                    <td><a asp-action="Details" asp-route-id="@item.Id">@item.LastName</a></td>
+                    <td>@item.Phone</td>
+                    <td>@item.Email</td>
+                    <td>@item.CategoryName</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

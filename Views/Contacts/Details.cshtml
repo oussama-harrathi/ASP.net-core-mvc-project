@@ -1,0 +1,39 @@
+﻿@model web_based.ViewModels.ContactViewModel
+
+@{
+    ViewData["Title"] = "Contact Details";
+}
+
+<h2 class="mb-4" style="margin-top: 50px;">@ViewData["Title"]</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Contact</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">First Name</dt>
+            <dd class="col-sm-10">@Model.FirstName</dd>
+
+            <dt class="col-sm-2">Last Name</dt>
+            <dd class="col-sm-10">@Model.LastName</dd>
+
+            <dt class="col-sm-2">Phone</dt>
+            <dd class="col-sm-10">@Model.Phone</dd>
+
+            <dt class="col-sm-2">Email</dt>
+            <dd class="col-sm-10">@Model.Email</dd>
+
+            <dt class="col-sm-2">Category</dt>
+            <dd class="col-sm-10">@Model.CategoryName</dd>
+
+            <dt class="col-sm-2">Date Added</dt>
+            <dd class="col-sm-10">@Model.DateAdded.ToString("MM/dd/yyyy 'at' hh:mmtt")</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>
